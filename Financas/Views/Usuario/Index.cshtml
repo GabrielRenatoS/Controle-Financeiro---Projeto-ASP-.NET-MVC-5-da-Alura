@@ -1,0 +1,24 @@
+﻿@model IList<Financas.Entidades.Usuario>
+
+@Html.ActionLink("Novo usuario", "Form")
+
+<table class="table-hover">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Nome</th>
+            <th>E-Mail</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var usuario in Model)
+        {
+            <tr>
+                <td>@usuario.Id</td>
+                <td>@usuario.Nome</td>
+                <td>@usuario.Email</td>
+                <td><button onclick="location.href='@Url.Action("Remove", "Usuario", usuario)'">Deletar</button></td>
+            </tr>
+        }
+    </tbody>
+</table>
